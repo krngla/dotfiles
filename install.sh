@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
 conf_dir=~/.config
-bu_dir=~/tmp
-
-
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+cd $SCRIPT_DIR
 #prepare files
 
 
