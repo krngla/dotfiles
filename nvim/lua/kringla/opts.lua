@@ -1,0 +1,12 @@
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.textwidth = 79
+vim.opt.sbr = '%%'
+vim.opt.colorcolumn = '80'
+vim.opt.termguicolors = true
+vim.opt.winwidth = 80
+vim.bo.filetype = true
