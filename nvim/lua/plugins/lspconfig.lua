@@ -20,12 +20,13 @@ return {
 		},
 
 		config = function()
-			local lsp = require('lsp-zero')
-			lsp.preset("reccomended")
+			local lsp = require('lsp-zero').preset({})
 
 			lsp.ensure_installed({
+				'lua_ls',
 				'rust_analyzer',
 				'gopls',
+				'texlab',
 			})
 
 			-- Fix Undefined global 'vim'
@@ -68,7 +69,7 @@ return {
 				vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
 				vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
 				vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-				vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)	
+				vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 			end)
 
 
@@ -76,7 +77,7 @@ return {
 			local lspconf = require('lspconfig')
 			local util = require('lspconfig/util')
 			lspconf.lua_ls.setup(lsp.nvim_lua_ls())
-			
+
 			lspconf.gopls.setup {
 				cmd = {"gopls", "serve"},
 				filetypes = {"go", "gomod"},
