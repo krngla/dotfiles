@@ -54,7 +54,20 @@ bindkey -v
 
 #oldprompt
 #PROMPT='%F{blue}[%F{yellow}%n%F{red}@%F{magenta}%m %F{cyan}%2~%F{blue}]%f%# '
-nvim.appimage
+
+
+dist=$(cat /etc/os-release | grep ^ID | sed -e "s/^ID=\(.*\)/\1/")
+
+case $dist in
+	debian)
+		#do deb
+		alias nvim=nvim.appimage
+		;;
+	arch)
+		#do arch
+		;;
+esac
+
 alias vim=nvim
 alias sudo='sudo '
 alias ls='ls --color=auto'
