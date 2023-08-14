@@ -69,6 +69,7 @@ case $dist in
 esac
 
 alias vim=nvim
+alias vi=nvim
 alias sudo='sudo '
 alias ls='ls --color=auto'
 alias cd4share='cd /media/Disk4T/share'

@@ -12,7 +12,7 @@ return {
 					local opts = require("lazy.core.plugin").values(plugin, "opts", false)
 					local enabled = false
 					if opts.textobjects then
-						for _, mod in ipairs({ "move", "select", "swap", "lsp_interop" })do
+						for _, mod in ipairs({ "move", "select", "swap", "lsp_interop" }) do
 							if opts.textobjects[mod] and opts.textobjects[mod].enable then
 								enabled = true
 								break
@@ -44,6 +44,7 @@ return {
 				"regex",
 				"vim",
 				"go",
+				"rust",
 			},
 			increment_selection = {
 				enable = true,
