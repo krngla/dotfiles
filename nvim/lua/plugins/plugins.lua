@@ -6,11 +6,11 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
-			require("nvim-tree").setup {}
+			require("nvim-tree").setup({})
 		end,
 	},
 	{
-		'christoomey/vim-tmux-navigator',
+		"christoomey/vim-tmux-navigator",
 		lazy = false,
 		keys = {
 			["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "window left" },
@@ -18,5 +18,5 @@ return {
 			["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", "window down" },
 			["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
 		},
-	}
+	},
 }

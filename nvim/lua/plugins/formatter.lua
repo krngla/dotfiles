@@ -1,9 +1,18 @@
 return {
 	"mhartington/formatter.nvim",
 	dependencies = {
-		--"StyLua"
+		--"StyLua",
 	},
 	config = function()
+		--TODO: Use mason to install dependencies, stylua
+		local m_registry = require("mason-registry")
+		local deps = { "stylua", "shfmt" }
+		for _, dep in ipairs(deps) do
+			if m_registry.is_installed(dep) == false then
+				m_registry.get_package(dep):install()
+			end
+		end
+
 		local util = require("formatter.util")
 		require("formatter").setup({
 			logging = true,
@@ -37,12 +46,22 @@ return {
 						}
 					end,
 				},
+				sh = {
+					require("formatter.filetypes.sh").shfmt,
+					function()
+						return {
+							exe = "shfmt",
+							args = { "-i", vim.opt.shiftwidth },
+							stdin = true,
+						}
+					end,
+				},
 				["*"] = {
 					require("formatter.filetypes.any").remove_trailing_whitespace,
 				},
 			},
 		})
-		local FormatAutoGroup = vim.api.nvim_create_augroup("vimrc", { clera = flase })
+		local FormatAutoGroup = vim.api.nvim_create_augroup("vimrc", { clear = false })
 		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 			group = FormatAutoGroup,
 			command = "FormatWrite",
