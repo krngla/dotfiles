@@ -74,5 +74,9 @@ alias sudo='sudo '
 alias ls='ls --color=auto'
 alias cd4share='cd /media/Disk4T/share'
 alias devtools='cd /opt/dev/c/dev_tools'
+alias goDir='cd /mnt/c/Users/arjevn/go'
 export GO111MODULE=on
 
+for FILE in ~/zshrc/*; do
+	source $FILE
+done

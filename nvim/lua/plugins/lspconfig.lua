@@ -16,9 +16,14 @@ return {
 			-- Autocompletion
 			{ "hrsh7th/nvim-cmp" }, -- Required
 			{ "hrsh7th/cmp-nvim-lsp" }, -- Required
-			{ "L3MON4D3/LuaSnip" }, -- Required
+			{
+				"L3MON4D3/LuaSnip",
+				-- follow latest release.
+				version = "2.*", -- Replace <CurretnMajor> by the latest release major
+				--install jsregexp (optional!).
+				build = "make install_jsregexp",
+			}, -- Required
 		},
-
 		config = function()
 			local lsp = require("lsp-zero").preset({})
 
@@ -95,7 +100,25 @@ return {
 			-- (Optional) Configure lua language server for neovim
 			local lspconf = require("lspconfig")
 			local util = require("lspconfig/util")
-			lspconf.lua_ls.setup(lsp.nvim_lua_ls())
+			lspconf.lua_ls.setup(lsp.nvim_lua_ls({
+				on_init = function(client)
+					local path = client.workspace_folders[1].name
+					if vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/luarc.jsonc") then
+						return
+					end
+				end,
+				settings = {
+					lua = {
+						runtime = { version = "LuaJIT" },
+						workspace = {
+							checkThirdPerty = false,
+							library = {
+								vim.env.VIMRUNTIME,
+							},
+						},
+					},
+				},
+			}))
 
 			lspconf.gopls.setup({
 				cmd = { "gopls", "serve" },
@@ -111,6 +134,7 @@ return {
 				},
 			})
 			lsp.setup()
+			-- Required
 			vim.diagnostic.config({
 				virtual_text = true,
 			})
