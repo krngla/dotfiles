@@ -22,7 +22,7 @@ setopt HIST_IGNORE_SPACE
 setopt CORRECT_ALL
 unsetopt beep
 
-export PATH=/opt/bin:/opt/bin/lib:/opt/inc:$PATH
+export PATH=~/.local/scripts:/opt/bin:/opt/bin/lib:/opt/inc:$PATH
 export LD_LIBRARY_PATH=/opt/bin/lib:$LD_LIBRARY_PATH
 
 zstyle ':completion:*' completer _complete _correct _approximate
@@ -52,6 +52,7 @@ zle-line-init () {
 zle -N zle-line-init
 bindkey -v
 
+
 #oldprompt
 #PROMPT='%F{blue}[%F{yellow}%n%F{red}@%F{magenta}%m %F{cyan}%2~%F{blue}]%f%# '
 
@@ -71,11 +72,15 @@ esac
 alias vim=nvim
 alias vi=nvim
 alias sudo='sudo '
+alias sudol='sudo !!'
 alias ls='ls --color=auto'
 alias cd4share='cd /media/Disk4T/share'
 alias devtools='cd /opt/dev/c/dev_tools'
 alias goDir='cd /mnt/c/Users/arjevn/go'
+alias devPS301FHB='cd /mnt/c/Arendal/Hitachi/PS301F-Halfbridge/5\ Kitron\ SW'
+alias tf=TF.exe
 export GO111MODULE=on
+export GOPATH=/mnt/c/Users/arjevn/go
 
 for FILE in ~/zshrc/*; do
 	source $FILE
