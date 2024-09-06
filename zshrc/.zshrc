@@ -80,7 +80,7 @@ alias goDir='cd /mnt/c/Users/arjevn/go'
 alias devPS301FHB='cd /mnt/c/Arendal/Hitachi/PS301F-Halfbridge/5\ Kitron\ SW'
 alias tf=TF.exe
 export GO111MODULE=on
-export GOPATH=/mnt/c/Users/arjevn/go
+#export GOPATH=/mnt/c/Users/arjevn/go
 
 for FILE in ~/zshrc/*; do
 	source $FILE
