@@ -32,6 +32,7 @@ return {
 				"rust_analyzer",
 				"gopls",
 				"texlab",
+				"zls",
 			})
 
 			-- Fix Undefined global 'vim'
