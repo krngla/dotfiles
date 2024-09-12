@@ -47,4 +47,7 @@ return {
 	{
 		"tpope/vim-fugitive",
 	},
+	{
+		"fatih/vim-go",
+	},
 }
