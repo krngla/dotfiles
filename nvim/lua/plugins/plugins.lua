@@ -44,4 +44,7 @@ return {
 		priority = 1000,
 		opts = {},
 	},
+	{
+		"tpope/vim-fugitive",
+	},
 }
