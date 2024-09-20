@@ -81,6 +81,7 @@ alias goDir='cd /mnt/c/Users/arjevn/go'
 alias devPS301FHB='cd /mnt/c/Arendal/Hitachi/PS301F-Halfbridge/5\ Kitron\ SW'
 alias tf=TF.exe
 alias fcd='cd $(find * -type d | fzf)'
+alias sd="cd ~ && cd (find * -type d | fzf)"
 export GO111MODULE=on
 export GOPRIVATE=github.com/krngla
 #export GOPATH=/mnt/c/Users/arjevn/go
