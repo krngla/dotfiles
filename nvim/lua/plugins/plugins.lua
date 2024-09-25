@@ -56,4 +56,9 @@ return {
 	{
 		"fatih/vim-go",
 	},
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+	},
 }

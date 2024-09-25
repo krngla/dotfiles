@@ -88,3 +88,8 @@ export GOPRIVATE=github.com/krngla
 for FILE in ~/zshrc/*; do
 	source $FILE
 done
+
+mkcd () {
+	mkdir -p "${1}"
+	cd "${1}"
+}

@@ -134,10 +134,18 @@ return {
 					},
 				},
 			})
+			lspconf.zls.setup({
+				settings = {
+					lua = {
+						completion_label_details = true,
+						inlay_hints = true,
+					},
+				},
+			})
 			lsp.setup()
 			-- Required
 			vim.diagnostic.config({
-				virtual_text = true,
+				virtual_text = false,
 			})
 		end,
 	},
