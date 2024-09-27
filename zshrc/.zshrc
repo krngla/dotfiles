@@ -80,8 +80,12 @@ alias devtools='cd /opt/dev/c/dev_tools'
 alias goDir='cd /mnt/c/Users/arjevn/go'
 alias devPS301FHB='cd /mnt/c/Arendal/Hitachi/PS301F-Halfbridge/5\ Kitron\ SW'
 alias tf=TF.exe
+<<<<<<< HEAD
 alias fcd='cd $(find * -type d | fzf)'
 alias sd="cd ~ && cd (find * -type d | fzf)"
+=======
+alias sd="cd ~ && cd \$(find * -type d | fzf)"
+>>>>>>> 2b9d6ca (some changes i dont know)
 export GO111MODULE=on
 export GOPRIVATE=github.com/krngla
 #export GOPATH=/mnt/c/Users/arjevn/go
