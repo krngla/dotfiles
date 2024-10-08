@@ -61,4 +61,37 @@ return {
 		event = "InsertEnter",
 		config = true,
 	},
+	{
+		dir = "~/projects/nvim/gerror",
+		name = "gerror",
+		config = function()
+			require("gerror").setup()
+		end,
+	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {
+			indent = {
+				char = "│",
+				--highlight = { "function", "label" },
+				smart_indent_cap = true,
+			},
+			whitespace = {
+				highlight = {
+					"Function",
+					"Label",
+				},
+				remove_blankline_trail = true,
+			},
+			scope = {
+				enabled = true,
+				char = "$",
+				show_start = true,
+				highlight = { "Function", "Label" },
+				priority = 500,
+			},
+		},
+		-- Other blankline configuration here
+	},
 }
