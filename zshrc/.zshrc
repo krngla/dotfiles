@@ -58,15 +58,6 @@ bindkey -v
 
 dist=$(cat /etc/os-release | grep ^ID | sed -e "s/^ID=\(.*\)/\1/")
 
-case $dist in
-	debian)
-		#do deb
-		alias nvim=nvim.appimage
-		;;
-	arch)
-		#do arch
-		;;
-esac
 
 alias vim=nvim
 alias vi=nvim
@@ -75,4 +66,5 @@ alias ls='ls --color=auto'
 alias cd4share='cd /media/Disk4T/share'
 alias devtools='cd /opt/dev/c/dev_tools'
 export GO111MODULE=on
+
 

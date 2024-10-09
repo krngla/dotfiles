@@ -9,4 +9,3 @@ vim.opt.sbr = "%%"
 vim.opt.colorcolumn = "80"
 vim.opt.termguicolors = true
 vim.opt.winwidth = 80
-vim.bo.filetype = true
