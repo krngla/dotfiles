@@ -1,4 +1,5 @@
 
+
 zstyle :compinstall filename '$HOME/.zshrc'
 
 alias ttmux='TERM=xterm-256color tmux'
@@ -22,7 +23,7 @@ setopt HIST_IGNORE_SPACE
 setopt CORRECT_ALL
 unsetopt beep
 
-export PATH=/opt/bin:/opt/bin/lib:/opt/inc:$PATH
+export PATH=~/.local/scripts:/opt/bin:/opt/bin/lib:/opt/inc:$PATH
 export LD_LIBRARY_PATH=/opt/bin/lib:$LD_LIBRARY_PATH
 
 zstyle ':completion:*' completer _complete _correct _approximate
@@ -52,6 +53,7 @@ zle-line-init () {
 zle -N zle-line-init
 bindkey -v
 
+
 #oldprompt
 #PROMPT='%F{blue}[%F{yellow}%n%F{red}@%F{magenta}%m %F{cyan}%2~%F{blue}]%f%# '
 
@@ -62,9 +64,27 @@ dist=$(cat /etc/os-release | grep ^ID | sed -e "s/^ID=\(.*\)/\1/")
 alias vim=nvim
 alias vi=nvim
 alias sudo='sudo '
+alias sudol='sudo !!'
 alias ls='ls --color=auto'
 alias cd4share='cd /media/Disk4T/share'
 alias devtools='cd /opt/dev/c/dev_tools'
+alias goDir='cd /mnt/c/Users/arjevn/go'
+alias devPS301FHB='cd /mnt/c/Arendal/Hitachi/PS301F-Halfbridge/5\ Kitron\ SW'
+alias tf=TF.exe
+alias fcd='cd $(find * -type d | fzf)'
+alias sd="cd ~ && cd \$(find * -type d | fzf)"
 export GO111MODULE=on
+export GOPRIVATE=github.com/krngla
+#export GOPATH=/mnt/c/Users/arjevn/go
 
+for FILE in ~/zshrc/*; do
+	source $FILE
+done
 
+mkcd () {
+	mkdir -p "${1}"
+	cd "${1}"
+}
+source ~/antigen.zsh
+
+antigen bundle zsh-users/zsh-autosuggestions
