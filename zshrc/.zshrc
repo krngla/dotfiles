@@ -94,3 +94,8 @@ mkcd () {
 	mkdir -p "${1}"
 	cd "${1}"
 }
+
+
+source ~/antigen.zsh
+
+antigen bundle zsh-users/zsh-autosuggestions
