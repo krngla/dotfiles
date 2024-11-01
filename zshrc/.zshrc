@@ -70,6 +70,7 @@ alias cd4share='cd /media/Disk4T/share'
 alias devtools='cd /opt/dev/c/dev_tools'
 alias goDir='cd /mnt/c/Users/arjevn/go'
 alias devPS301FHB='cd /mnt/c/Arendal/Hitachi/PS301F-Halfbridge/5\ Kitron\ SW'
+alias devHit='cd /mnt/c/Arendal/Hitachi'
 alias tf=TF.exe
 alias fcd='cd $(find * -type d | fzf)'
 alias sd="cd ~ && cd \$(find * -type d | fzf)"
