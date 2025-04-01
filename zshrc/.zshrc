@@ -98,3 +98,6 @@ antigen bundle zsh-users/zsh-autosuggestions
 # This section can be safely removed at any time if needed.
 [[ ! -r '/home/arjevn/.opam/opam-init/init.zsh' ]] || source '/home/arjevn/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

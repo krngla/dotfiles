@@ -62,13 +62,6 @@ return {
 		config = true,
 	},
 	{
-		dir = "~/projects/nvim/gerror",
-		name = "gerror",
-		config = function()
-			require("gerror").setup()
-		end,
-	},
-	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		opts = {
@@ -86,7 +79,8 @@ return {
 			},
 			scope = {
 				enabled = true,
-				char = "$",
+				char = "│",
+				--highlight = { "function", "label" },
 				show_start = true,
 				highlight = { "Function", "Label" },
 				priority = 500,
