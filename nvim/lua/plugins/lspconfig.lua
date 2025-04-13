@@ -34,7 +34,6 @@ return {
 				"texlab",
 				"zls",
 				"pylsp",
-				"ocamllsp",
 			})
 
 			-- Fix Undefined global 'vim'
@@ -146,7 +145,6 @@ return {
 					},
 				},
 			})
-			lspconf.ocamllsp.setup({})
 			lspconf.pylsp.setup({})
 
 			lsp.setup()

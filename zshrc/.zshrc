@@ -96,7 +96,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 #   - the correct directories to the PATH
 #   - auto-completion for the opam binary
 # This section can be safely removed at any time if needed.
-[[ ! -r '/home/arjevn/.opam/opam-init/init.zsh' ]] || source '/home/arjevn/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+[[ ! -r '/home/kringla/.opam/opam-init/init.zsh' ]] || source '/home/kringla/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
 
 # Generated for envman. Do not edit.
