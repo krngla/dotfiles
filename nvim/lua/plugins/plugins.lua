@@ -79,7 +79,7 @@ return {
 			},
 			scope = {
 				enabled = true,
-				char = "│",
+				char = "&", --"│",
 				--highlight = { "function", "label" },
 				show_start = true,
 				highlight = { "Function", "Label" },
