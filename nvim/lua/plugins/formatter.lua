@@ -1,7 +1,8 @@
 return {
 	"mhartington/formatter.nvim",
 	dependencies = {
-		--"StyLua",
+		{"mason-org/mason.nvim"},
+		{"mason-org/mason-registry"},
 	},
 	config = function()
 		--TODO: Use mason to install dependencies, stylua

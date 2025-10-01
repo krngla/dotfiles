@@ -1,8 +1,10 @@
-
-
 zstyle :compinstall filename '$HOME/.zshrc'
 
 alias ttmux='TERM=xterm-256color tmux'
+
+
+export LANG=nb_NO.UTF-8
+export LC_CTYPE=$LANG
 
 [ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit;}
 autoload -Uz colors compinit vcs_info
@@ -28,17 +30,20 @@ export LD_LIBRARY_PATH=/opt/bin/lib:$LD_LIBRARY_PATH
 
 zstyle ':completion:*' completer _complete _correct _approximate
 
-zstyle ':vcs_info:*' stagedstr '%F{green}●%f '
-zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f '
+zstyle ':vcs_info:*' stagedstr '%F{green}●%f'
+zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f'
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "%F{blue}%b%f %u%c"
 _setup_ps1() {
 	vcs_info
-	GLYPH="▲"
-	[ "x$KEYMAP" = "xvicmd" ] && GLYPH="▼"
-	PS1=" %(?.%F{green}.%F{red})$GLYPH %F{214}%n%(?.%F{green}.%F{red})@%m %f %(1j.%F{cyan}[%j]%f .)%F{blue}%(5~|%-1~/…/%3~|%4~)%f %(!.%F{red}#%f .)"
-	#PS1=" %(?.%F{green}.%F{red})$GLYPH %F{214}%n%(?.%F{green}.%F{red})@%m %f %(1j.%F{cyan}[%j]%f .)%F{blue}%~%f %(!.%F{red}#%f .)"
-	RPROMPT="$vcs_info_msg_0_"
+	GLYPH="%{%G▲%}"
+	[ "x$KEYMAP" = "xvicmd" ] && GLYPH="%{%G▼%}"
+
+	PS1="%(?.%{%F{green}%}${GLYPH}%f.%{%F{red}%}${GLYPH}%f) \
+%{%F{214}%}%n%f%(?.%F{green}@%m%f.%{%F{red}%}@%m%f) \
+%(1j.%{%F{cyan}%}[%j]%f .)%{%F{blue}%}%(5~|%-1~/…/%3~|%4~)%f %(!.%{%F{red}%}#%f .)"
+
+	RPROMPT=\"$vcs_info_msg_0_\"
 }
 _setup_ps1
 # Vi mode
@@ -77,16 +82,21 @@ alias sd="cd ~ && cd \$(find * -type d | fzf)"
 export GO111MODULE=on
 export GOPRIVATE=github.com/krngla
 #export GOPATH=/mnt/c/Users/arjevn/go
+if [ ! -d ~/zshrc ]; then
+	mkdir ~/zshrc
+fi
 
-for FILE in ~/zshrc/*; do
-	source $FILE
+for FILE in ~/zshrc/; do
+	if [ -f "$FILE" ]; then
+		source $FILE
+	fi
 done
 
 mkcd () {
 	mkdir -p "${1}"
 	cd "${1}"
 }
-source ~/antigen.zsh
+
+source ~/antigen/antigen.zsh
 
 antigen bundle zsh-users/zsh-autosuggestions
-

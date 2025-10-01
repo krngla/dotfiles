@@ -1,4 +1,5 @@
 require("kringla.opts")
+require("kringla.lsp")
 --Keymaps
 vim.g.mapleader = " "
 vim.keymap.set({ "n", "i", "v" }, "<Left>", function()
