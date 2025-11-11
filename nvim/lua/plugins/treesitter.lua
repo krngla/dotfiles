@@ -45,6 +45,7 @@ return {
 				"vim",
 				"go",
 				"rust",
+				"odin",
 			},
 			increment_selection = {
 				enable = true,
