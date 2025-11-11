@@ -30,18 +30,19 @@ export LD_LIBRARY_PATH=/opt/bin/lib:$LD_LIBRARY_PATH
 
 zstyle ':completion:*' completer _complete _correct _approximate
 
+: << 'END_COMMENT'
 zstyle ':vcs_info:*' stagedstr '%F{green}●%f'
 zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f'
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "%F{blue}%b%f %u%c"
 _setup_ps1() {
 	vcs_info
-	GLYPH="%{%G▲%}"
-	[ "x$KEYMAP" = "xvicmd" ] && GLYPH="%{%G▼%}"
+	GLYPH="%{%2G▲%}"
+	[ "x$KEYMAP" = "xvicmd" ] && GLYPH="%{%2G▼%}"
 
-	PS1="%(?.%{%F{green}%}${GLYPH}%f.%{%F{red}%}${GLYPH}%f) \
-%{%F{214}%}%n%f%(?.%F{green}@%m%f.%{%F{red}%}@%m%f) \
-%(1j.%{%F{cyan}%}[%j]%f .)%{%F{blue}%}%(5~|%-1~/…/%3~|%4~)%f %(!.%{%F{red}%}#%f .)"
+	PS1="%(?.%F{green}${GLYPH}%f.%F{red}${GLYPH}%f) \
+%F{214}%n%f%(?.%F{green}@%m%f.%F{red}@%m%f) \
+%(1j.%F{cyan}[%j]%f .)%F{blue}%(5~|%-1~/…/%3~|%4~)%f %(!.%F{red}#%f .)"
 
 	RPROMPT=\"$vcs_info_msg_0_\"
 }
@@ -56,6 +57,7 @@ zle-line-init () {
 	zle -K viins
 }
 zle -N zle-line-init
+END_COMMENT
 bindkey -v
 
 
@@ -96,7 +98,12 @@ mkcd () {
 	mkdir -p "${1}"
 	cd "${1}"
 }
-
+ANTIGEN_LOG=~/.log/antigen.log
 source ~/antigen/antigen.zsh
 
+
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle agkozak/agkozak-zsh-prompt
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen apply
