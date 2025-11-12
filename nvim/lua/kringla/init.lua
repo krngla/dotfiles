@@ -19,6 +19,7 @@ vim.keymap.set("n", "<leader>h", "<Left>")
 vim.keymap.set("n", "<leader>l", "<Right>")
 vim.keymap.set("n", "<leader>k", "<Up>")
 vim.keymap.set("n", "<leader>j", "<Down>")
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = '[E]xpand diagnosic message'})
 
 ---#bootstrap lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

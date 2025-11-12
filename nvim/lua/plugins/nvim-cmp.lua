@@ -1,24 +1,24 @@
 return {
-	"hrsh7th/nvim-cmp" ,
+	"hrsh7th/nvim-cmp",
 	version = false,
 	event = "InsertEnter",
 	dependencies = {
-		{"hrsh7th/cmp-nvim-lsp"},
-		{'hrsh7th/cmp-buffer'},
-		{'hrsh7th/cmp-path'},
-		{'hrsh7th/cmp-cmdline'},
-		{'hrsh7th/nvim-cmp'},
-		{'petertriho/cmp-git'},
+		{ "hrsh7th/cmp-nvim-lsp" },
+		{ "hrsh7th/cmp-buffer" },
+		{ "hrsh7th/cmp-path" },
+		{ "hrsh7th/cmp-cmdline" },
+		{ "hrsh7th/nvim-cmp" },
+		{ "petertriho/cmp-git" },
 		{
-			'L3MON4D3/LuaSnip',
+			"L3MON4D3/LuaSnip",
 			version = "2.*",
 			build = "make install_jsregexp",
-			},
-		{'saadparwaiz1/cmp_luasnip'},
+		},
+		{ "saadparwaiz1/cmp_luasnip" },
 	},
 	opts = function()
 		vim.lsp.config("*", {
-			capabilities = require("cmp_nvim_lsp").default_capabilities()
+			capabilities = require("cmp_nvim_lsp").default_capabilities(),
 		})
 
 		local cmp = require("cmp")
@@ -31,7 +31,7 @@ return {
 			},
 			snippet = {
 				expand = function(args)
-					require('luasnip').lsp_expand(args.body)
+					require("luasnip").lsp_expand(args.body)
 				end,
 			},
 			window = {
@@ -53,9 +53,9 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "path" },
-			},{
-				{ name = 'buffer' },
-			})
+			}, {
+				{ name = "buffer" },
+			}),
 		}
 	end,
 }

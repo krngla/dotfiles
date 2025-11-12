@@ -46,6 +46,7 @@ return {
 				"go",
 				"rust",
 				"odin",
+				"glsl",
 			},
 			increment_selection = {
 				enable = true,

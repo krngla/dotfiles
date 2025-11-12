@@ -1,8 +1,8 @@
 return {
 	"mhartington/formatter.nvim",
 	dependencies = {
-		{"mason-org/mason.nvim"},
-		{"mason-org/mason-registry"},
+		{ "mason-org/mason.nvim" },
+		{ "mason-org/mason-registry" },
 	},
 	config = function()
 		--TODO: Use mason to install dependencies, stylua
@@ -53,6 +53,15 @@ return {
 						return {
 							exe = "shfmt",
 							args = { "-i", vim.opt.shiftwidth },
+							stdin = true,
+						}
+					end,
+				},
+				odin = {
+					function()
+						return {
+							exe = "odinfmt",
+							args = { "-stdin" },
 							stdin = true,
 						}
 					end,

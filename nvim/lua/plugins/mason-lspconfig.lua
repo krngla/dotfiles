@@ -9,6 +9,7 @@ return {
 			"zls",
 			"pylsp",
 			"ols",
+			"glsl_analyzer",
 		},
 	},
 	dependencies = {
